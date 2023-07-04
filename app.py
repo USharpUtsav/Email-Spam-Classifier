@@ -1,10 +1,10 @@
 import streamlit as st
 import pickle
 import string
-import pandas as pd
 from nltk.corpus import stopwords
 import nltk
-nltk.download('punkt')
+nltk.download('stopwords')
+nltk.download('all')
 from nltk.stem.porter import PorterStemmer
 
 ps = PorterStemmer()
@@ -34,8 +34,8 @@ def transform_text(text):
 
     return " ".join(y)
 
-tfidf = pd.read_pickle(open('vectorizer.pkl','rb'))
-model = pd.read_pickle(open('model.pkl','rb'))
+tfidf = pickle.load(open('vectorizer.pkl','rb'))
+model = pickle.load(open('model.pkl','rb'))
 
 st.title("Email Spam Classifier")
 
